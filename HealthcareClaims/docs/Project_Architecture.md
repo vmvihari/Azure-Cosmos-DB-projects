@@ -7,18 +7,18 @@ This document details the end-to-end architecture of the Real-Time Healthcare Cl
 ```mermaid
 graph TD
     %% Define components
-    Sim[Claim Simulator\n(C# Console App)]
-    API_Submit[SubmitClaim API\n(Azure Function - HTTP)]
-    Cosmos[(Azure Cosmos DB\n'Claims' Container)]
-    API_CF[ClaimChangeFeed API\n(Azure Function - Cosmos Trigger)]
-    SignalR((Azure SignalR Service))
-    UI[Angular Dashboard\n(Real-Time UI)]
+    Sim["Claim Simulator<br>(C# Console App)"]
+    API_Submit["SubmitClaim API<br>(Azure Function - HTTP)"]
+    Cosmos[("Azure Cosmos DB<br>'Claims' Container")]
+    API_CF["ClaimChangeFeed API<br>(Azure Function - Cosmos Trigger)"]
+    SignalR(("Azure SignalR Service"))
+    UI["Angular Dashboard<br>(Real-Time UI)"]
 
     %% Data flow
     Sim -- "1. POST /api/claims" --> API_Submit
-    API_Submit -- "2. Ingests Claim\n(Output Binding)" --> Cosmos
+    API_Submit -- "2. Ingests Claim<br>(Output Binding)" --> Cosmos
     Cosmos -- "3. Triggers Change Feed" --> API_CF
-    API_CF -- "4. Broadcasts Update\n(Output Binding)" --> SignalR
+    API_CF -- "4. Broadcasts Update<br>(Output Binding)" --> SignalR
     SignalR -- "5. Pushes 'claimUpdated' event" --> UI
 
     %% Styling

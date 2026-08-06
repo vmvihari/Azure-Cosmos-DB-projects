@@ -1,0 +1,19 @@
+# Exclude transcripts as requested
+**/Transcripts/
+Transcripts/
+
+# .NET Core
+bin/
+obj/
+
+# Python
+__pycache__/
+*.py[cod]
+.env
+
+# Node
+node_modules/
+
+# OS generated files
+.DS_Store
+Thumbs.db

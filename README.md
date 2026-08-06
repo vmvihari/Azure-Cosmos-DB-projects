@@ -13,7 +13,7 @@ This project simulates a high-throughput healthcare claims ingestion system. Whe
 - **Real-Time Messaging**: Azure SignalR Service
 - **Infrastructure**: Terraform
 
-> 📖 **Architecture Deep Dive:** For a full system diagram and explanation of how data flows between these components, please read the [**Project Architecture Document**](./docs/Project_Architecture.md).
+> 📖 **Architecture Deep Dive:** For a full system diagram and explanation of how data flows between these components, please read the [**Project Architecture Document**](./HealthcareClaims/docs/Project_Architecture.md).
 
 ---
 
@@ -21,12 +21,12 @@ This project simulates a high-throughput healthcare claims ingestion system. Whe
 
 This repository contains a deep dive into the architectural decisions made for this system. The documentation is structured to comprehensively explain how advanced Cosmos DB concepts are practically applied in an enterprise scenario, which is highly useful for conceptual understanding and interview preparation.
 
-Please review the following technical guides in the `/docs/Concepts` folder:
-1. [Data Modeling & Partitioning](./docs/Concepts/01_Data_Modeling_and_Partitioning.md)
-2. [Change Feed & Event-Driven Architecture](./docs/Concepts/02_Change_Feed_and_Event_Driven_Architecture.md)
-3. [Global Distribution & Consistency Models](./docs/Concepts/03_Global_Distribution_and_Consistency.md)
-4. [Indexing & Performance Optimization](./docs/Concepts/04_Indexing_and_Performance_Optimization.md)
-5. [Server-Side Programming & Transactions (ACID)](./docs/Concepts/05_Server_Side_Programming_and_Transactions.md)
+Please review the following technical guides in the `/Concepts` folder:
+1. [Data Modeling & Partitioning](./Concepts/01_Data_Modeling_and_Partitioning.md)
+2. [Change Feed & Event-Driven Architecture](./Concepts/02_Change_Feed_and_Event_Driven_Architecture.md)
+3. [Global Distribution & Consistency Models](./Concepts/03_Global_Distribution_and_Consistency.md)
+4. [Indexing & Performance Optimization](./Concepts/04_Indexing_and_Performance_Optimization.md)
+5. [Server-Side Programming & Transactions (ACID)](./Concepts/05_Server_Side_Programming_and_Transactions.md)
 
 ---
 
@@ -49,7 +49,7 @@ Ensure the Cosmos DB Emulator is running on your machine. The backend is configu
 ### 2. Start the Backend API (Azure Functions)
 Navigate to the API directory and start the Functions host:
 ```bash
-cd src/api/HealthcareClaims.Api
+cd HealthcareClaims/src/api/HealthcareClaims.Api
 func start
 ```
 *Note: The API runs on `http://localhost:7071` by default.*
@@ -57,7 +57,7 @@ func start
 ### 3. Start the Angular Dashboard
 Open a new terminal window, navigate to the frontend directory, install dependencies, and start the development server:
 ```bash
-cd src/client/claims-dashboard
+cd HealthcareClaims/src/client/claims-dashboard
 npm install
 npm start
 ```
@@ -66,7 +66,7 @@ npm start
 ### 4. Run the Claim Simulator
 To see the real-time architecture in action, open a third terminal window and run the simulator to generate mock traffic:
 ```bash
-cd src/simulator/ClaimGenerator
+cd HealthcareClaims/src/simulator/ClaimGenerator
 dotnet run
 ```
 
@@ -76,10 +76,10 @@ Watch the terminal as claims are generated, and switch to your browser (`http://
 
 ## ☁️ Deploying to Azure
 
-The `/infra` folder contains Terraform scripts to provision the necessary resources in Azure (Cosmos DB with multi-region writes, Function Apps, and SignalR).
+The `/HealthcareClaims/infra` folder contains Terraform scripts to provision the necessary resources in Azure (Cosmos DB with multi-region writes, Function Apps, and SignalR).
 
 ```bash
-cd infra
+cd HealthcareClaims/infra
 terraform init
 terraform plan -out=tfplan
 terraform apply tfplan

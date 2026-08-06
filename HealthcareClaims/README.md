@@ -17,6 +17,19 @@ This project simulates a high-throughput healthcare claims ingestion system. Whe
 
 ---
 
+## 📚 Architectural Concepts & Documentation
+
+This repository contains a deep dive into the architectural decisions made for this system. The documentation is structured to comprehensively explain how advanced Cosmos DB concepts are practically applied in an enterprise scenario, which is highly useful for conceptual understanding and interview preparation.
+
+Please review the following technical guides in the `/docs/Concepts` folder:
+1. [Data Modeling & Partitioning](./docs/Concepts/01_Data_Modeling_and_Partitioning.md)
+2. [Change Feed & Event-Driven Architecture](./docs/Concepts/02_Change_Feed_and_Event_Driven_Architecture.md)
+3. [Global Distribution & Consistency Models](./docs/Concepts/03_Global_Distribution_and_Consistency.md)
+4. [Indexing & Performance Optimization](./docs/Concepts/04_Indexing_and_Performance_Optimization.md)
+5. [Server-Side Programming & Transactions (ACID)](./docs/Concepts/05_Server_Side_Programming_and_Transactions.md)
+
+---
+
 ## 🛠️ Prerequisites
 
 To run this project locally, ensure you have the following installed:
